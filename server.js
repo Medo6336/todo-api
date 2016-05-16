@@ -33,6 +33,20 @@ app.get('/todos', function (request, response) {
     response.json(todos);
 });
 
+app.get('/todos/:id', function (request, response) {
+    var todoId = parseInt(request.params.id, 10);
+    var matchedTodo;
+    todos.forEach(function (data) {
+        if(data.id === todoId)
+            matchedTodo = data;
+    });
+
+    if(matchedTodo)
+        response.json(matchedTodo);
+    else
+        response.status(404).send();
+});
+
 app.listen(port, function () {
     console.log('todo-api running on port ' + port);
 });
