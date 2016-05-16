@@ -19,7 +19,7 @@ var todos = [
     },
     {
         id: 3,
-        description: 'wiggle',
+        description: 'sleep',
         completed: false
     }
 ];
